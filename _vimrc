@@ -43,6 +43,8 @@ set smartcase
 imap <C-v> <S-Insert>
 
 
+set number
+
 set nowrap
 set showtabline=1
 

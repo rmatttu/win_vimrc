@@ -7,8 +7,6 @@ if has('multi_byte_ime')
 endif
 
 
-set nocompatible
-set number
 SM3
 set guioptions+=r "scroll bar
 set guioptions+=b
