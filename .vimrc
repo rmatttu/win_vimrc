@@ -88,7 +88,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
-"NeoBundle 'qfixapp'
+NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -150,21 +150,21 @@ NeoBundleCheck
 "let g:indent_guides_guide_size = 1
 
 
-"" ---------------------------------------------------------------------------
-"" QFixHowm
-""QFixHowmキーマップ
-""let QFixHowm_Key = 'g'
-"
-""howm_dirはファイルを保存したいディレクトリを設定。
-"let howm_dir             = '$VIM/howm'
-""let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
-""let howm_fileencoding    = 'utf-8'
-""let howm_fileformat      = 'unix'
-"
-""let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
-"
-"" QFixList表示でファイルへ移動したらウィンドウを閉じる
-"let QFixHowm_ListCloseOnJump = 1
+" ---------------------------------------------------------------------------
+" QFixHowm
+"QFixHowmキーマップ
+"let QFixHowm_Key = 'g'
+
+"howm_dirはファイルを保存したいディレクトリを設定。
+let howm_dir             = '$HOME/.vim/howm'
+"let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
+"let howm_fileencoding    = 'utf-8'
+"let howm_fileformat      = 'unix'
+
+"let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
+
+" QFixList表示でファイルへ移動したらウィンドウを閉じる
+let QFixHowm_ListCloseOnJump = 1
 
 
 " ---------------------------------------------------------------------------
