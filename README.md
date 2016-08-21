@@ -1,21 +1,24 @@
 # win_vimrc
 
-windows—pvim İ’èƒtƒ@ƒCƒ‹
+windowsç”¨vim è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
 
 ## Install
 
-1. git‚ğƒCƒ“ƒXƒg[ƒ‹‚µAƒpƒX‚ğ’Ê‚·
-git for windows ƒCƒ“ƒXƒg[ƒ‰[
+
+1. gitã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã€ãƒ‘ã‚¹ã‚’é€šã™  
+git for windows ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ©ãƒ¼  
 https://git-for-windows.github.io/
 
 
-2. vim‚ğƒCƒ“ƒXƒg[ƒ‹
-‚è‰®”Å Vim ÅVƒŠƒŠ[ƒXî•ñ
+2. vimã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«  
+é¦™ã‚Šå±‹ç‰ˆ Vim æœ€æ–°ãƒªãƒªãƒ¼ã‚¹æƒ…å ±  
 https://github.com/koron/vim-kaoriya/releases/latest
 
-3. –{ƒŠƒ|ƒWƒgƒŠƒ_ƒEƒ“ƒ[ƒh
-git clone https://github.com/rmatttu/win_vimrc.git
 
-4. install.bat‚ğ‹N“®
+3. æœ¬ãƒªãƒã‚¸ãƒˆãƒªãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰  
+git clone https://github.com/rmatttu/win_vimrc.git  
+
+
+4. install.batã‚’èµ·å‹•  
 
 
