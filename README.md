@@ -16,7 +16,7 @@ https://github.com/koron/vim-kaoriya/releases/latest
 
 
 3. 本リポジトリダウンロード  
-git clone https://github.com/rmatttu/win_vimrc.git  
+`git clone https://github.com/rmatttu/win_vimrc.git`  
 
 
 4. install.batを起動  
