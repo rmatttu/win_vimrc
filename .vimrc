@@ -68,14 +68,14 @@ map <silent>    <F3>    :bn<cr>
 " ---------------------------------------------------------------------------
 " NeoBundle
 " Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+if 0 | endif
 
-if has('vim_starting')
+if &compatible
   set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -85,15 +85,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
-NeoBundle 'qfixapp'
+"NeoBundle 'qfixapp'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-
 "IMの制御がおかしくなる不具合
 "NeoBundle 'Townk/vim-autoclose'
-
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
@@ -110,10 +110,6 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bronson/vim-trailing-whitespace.git'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'rhysd/accelerated-jk.git'
-
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
 call neobundle#end()
 
 " Required:
@@ -122,6 +118,8 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
+
 
 "" ---------------------------------------------------------------------------
 "" vim-indent-guides
@@ -152,21 +150,21 @@ NeoBundleCheck
 "let g:indent_guides_guide_size = 1
 
 
-" ---------------------------------------------------------------------------
-" QFixHowm
-"QFixHowmキーマップ
-"let QFixHowm_Key = 'g'
-
-"howm_dirはファイルを保存したいディレクトリを設定。
-let howm_dir             = '$VIM/howm'
-"let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
-"let howm_fileencoding    = 'utf-8'
-"let howm_fileformat      = 'unix'
-
-"let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
-
-" QFixList表示でファイルへ移動したらウィンドウを閉じる
-let QFixHowm_ListCloseOnJump = 1
+"" ---------------------------------------------------------------------------
+"" QFixHowm
+""QFixHowmキーマップ
+""let QFixHowm_Key = 'g'
+"
+""howm_dirはファイルを保存したいディレクトリを設定。
+"let howm_dir             = '$VIM/howm'
+""let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
+""let howm_fileencoding    = 'utf-8'
+""let howm_fileformat      = 'unix'
+"
+""let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
+"
+"" QFixList表示でファイルへ移動したらウィンドウを閉じる
+"let QFixHowm_ListCloseOnJump = 1
 
 
 " ---------------------------------------------------------------------------
