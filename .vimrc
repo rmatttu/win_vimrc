@@ -25,8 +25,8 @@ set sidescroll=5
 autocmd FileType text setlocal textwidth=0
 
 " Linux開発用
-"set encoding=utf-8
-"set ff=unix
+set encoding=utf-8
+set ff=unix
 
 " インデントをTabではなくスペース4つで揃える
 set tabstop=4
