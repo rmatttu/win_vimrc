@@ -122,32 +122,35 @@ NeoBundleCheck
 
 " ---------------------------------------------------------------------------
 " vim-indent-guides
-"let g:indent_guides_auto_colors = 0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-"set ts=4 sw=4 et
-"let g:indent_guides_start_level = 2
-"let g:indent_guides_guide_size = 1
+" gvimでのみindent-guideをオンにする
+if has('gui_running')
+    "
+    "let g:indent_guides_auto_colors = 0
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+    "set ts=4 sw=4 et
+    "let g:indent_guides_start_level = 2
+    "let g:indent_guides_guide_size = 1
 
-set ts=4 sw=4
-" ***
-let g:neocomplcache_enable_at_startup = 1
+    set ts=4 sw=4
+    " ***
+    let g:neocomplcache_enable_at_startup = 1
 
-" vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
-let g:indent_guides_enable_on_vim_startup=1
-" ガイドをスタートするインデントの量
-let g:indent_guides_start_level=2
-" 自動カラーを無効にする
-"let g:indent_guides_auto_colors=0
-" 奇数インデントのカラー
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#161616 ctermbg=gray
-" 偶数インデントのカラー
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4f4f4f ctermbg=darkgray
-" ハイライト色の変化の幅
-let g:indent_guides_color_change_percent = 5
-" ガイドの幅
-let g:indent_guides_guide_size = 1
-
+    " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
+    let g:indent_guides_enable_on_vim_startup=1
+    " ガイドをスタートするインデントの量
+    let g:indent_guides_start_level=2
+    " 自動カラーを無効にする
+    "let g:indent_guides_auto_colors=0
+    " 奇数インデントのカラー
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#161616 ctermbg=gray
+    " 偶数インデントのカラー
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4f4f4f ctermbg=darkgray
+    " ハイライト色の変化の幅
+    let g:indent_guides_color_change_percent = 5
+    " ガイドの幅
+    let g:indent_guides_guide_size = 1
+end
 
 " ---------------------------------------------------------------------------
 " QFixHowm
