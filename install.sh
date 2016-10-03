@@ -6,7 +6,7 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 sh ./install.sh
 
 # setting my vim
-cp ~/vimrc_linux/.vimrc ~/
+cp ~/win_vimrc/.vimrc ~/
 cd ~/.vim/bundle/neobundle.vim/
 
 # neoinstall
