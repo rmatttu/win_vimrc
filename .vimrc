@@ -39,25 +39,35 @@ set smartindent
 set noignorecase
 set smartcase
 
-" Ctrl+Vの挙動を変更
-imap <C-v> <S-Insert>
-
-
 set number
-
 set nowrap
-set showtabline=1
+set noshowmode
+syntax on
 
-set laststatus=2
-set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P\ 
+" Windows 32bit, Windows 64bit のどちらか
+if has('win32') || has ('win64')
+    " Ctrl+Vの挙動を変更
+    imap <C-v> <S-Insert>
+endif
+
+" Unix 用設定
+if has('unix')
+    " teraterm用設定
+    "set term=builtin_linux
+    "set ttytype=builtin_linux
+    "set t_Co=256
+    "colorscheme desert256
+    colorscheme molokai256
+    "BSで削除できるものを指定する
+    set backspace=indent,eol,start
+    "テスト中
+    set viminfo='100,<50,s10,h,rA:,rB:
+endif
+
 
 
 " ---------------------------------------------------------------------------
 " KeyMap
-"Ctrl + ]で行の途中からでも改行が出来ます。
-inoremap <C-]> <ESC>$a<ENTER>
-nnoremap <C-]> $a<ENTER>
-
 noremap <ESC><ESC> :noh<ENTER>
 
 " ノーマルモードのときにF2で前のバッファ、F3で次のバッファに移動する
@@ -87,13 +97,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'nathanaelkane/vim-indent-guides.git'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-"IMの制御がおかしくなる不具合
-"NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
@@ -101,7 +108,8 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'osyo-manga/vim-brightest'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -109,6 +117,8 @@ NeoBundle 'altercation/vim-colors-solarized.git'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bronson/vim-trailing-whitespace.git'
 NeoBundle 'tyru/caw.vim.git'
+NeoBundle 'nathanaelkane/vim-indent-guides.git'
+NeoBundle 'Yggdroot/indentLine'
 call neobundle#end()
 
 " Required:
@@ -121,53 +131,18 @@ NeoBundleCheck
 
 
 " ---------------------------------------------------------------------------
-" vim-indent-guides
-" gvimでのみindent-guideをオンにする
-if has('gui_running')
-    "
-    "let g:indent_guides_auto_colors = 0
-    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-    "set ts=4 sw=4 et
-    "let g:indent_guides_start_level = 2
-    "let g:indent_guides_guide_size = 1
-
-    set ts=4 sw=4
-    " ***
-    let g:neocomplcache_enable_at_startup = 1
-
-    " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
-    let g:indent_guides_enable_on_vim_startup=1
-    " ガイドをスタートするインデントの量
-    let g:indent_guides_start_level=2
-    " 自動カラーを無効にする
-    "let g:indent_guides_auto_colors=0
-    " 奇数インデントのカラー
-    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#161616 ctermbg=gray
-    " 偶数インデントのカラー
-    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4f4f4f ctermbg=darkgray
-    " ハイライト色の変化の幅
-    let g:indent_guides_color_change_percent = 5
-    " ガイドの幅
-    let g:indent_guides_guide_size = 1
-end
-
-" ---------------------------------------------------------------------------
 " QFixHowm
 "QFixHowmキーマップ
 "let QFixHowm_Key = 'g'
-
 "howm_dirはファイルを保存したいディレクトリを設定。
 let howm_dir             = '$HOME/.vim/howm'
 "let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
 "let howm_fileencoding    = 'utf-8'
 "let howm_fileformat      = 'unix'
-
 "let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
-
 " QFixList表示でファイルへ移動したらウィンドウを閉じる
 let QFixHowm_ListCloseOnJump = 1
-
+let QFixHowm_Folding = 0
 
 " ---------------------------------------------------------------------------
 " neocomplete.vim
@@ -394,19 +369,137 @@ let g:multi_cursor_start_word_key='g<C-n>'
 
 
 " ---------------------------------------------------------------------------
-" vim-airline
+" lightline.vim
 "
-" Powerline系フォントを利用する
-let g:airline_powerline_fonts = 1
+let g:lightline = {
+      \ 'colorscheme': 'default',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode',
+      \   'ctrlpmark': 'CtrlPMark',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
 
-" タブバーのカスタマイズを有効にする
-let g:airline#extensions#tabline#enabled = 1
+function! LightLineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
 
-" タブバーの右領域を非表示にする
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_close_button = 0
+function! LightLineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
 
+function! LightLineFilename()
+  let fname = expand('%:t')
+  return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
+        \ fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let branch = fugitive#head()
+      return branch !=# '' ? mark.branch : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+          \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+"let g:tagbar_status_func = 'TagbarStatusFunc'
+
+"function! TagbarStatusFunc(current, sort, fname, ...) abort
+"    let g:lightline.fname = a:fname
+"  return lightline#statusline(0)
+"endfunction
+
+"augroup AutoSyntastic
+"  autocmd!
+"  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+"augroup END
+"function! s:syntastic()
+"  SyntasticCheck
+"  call lightline#update()
+"endfunction
+
+let g:unite_force_overwrite_statusline = 1
+let g:vimfiler_force_overwrite_statusline = 1
+let g:vimshell_force_overwrite_statusline = 1
 
 
 
@@ -415,6 +508,36 @@ let g:airline#extensions#tabline#show_close_button = 0
 " コメントの追加・削除を行なう
 nmap <Leader>/ <Plug>(caw:zeropos:toggle)
 vmap <Leader>/ <Plug>(caw:zeropos:toggle)
+
+
+
+" ---------------------------------------------------------------------------
+" vim-indent-guides
+" gvimでのみindent-guideをオンにする
+if has('gui_running')
+    " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
+    let g:indent_guides_enable_on_vim_startup=1
+    " ガイドをスタートするインデントの量
+    let g:indent_guides_start_level=2
+    " 自動カラーを無効にする
+    "let g:indent_guides_auto_colors=0
+    " 奇数インデントのカラー
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#161616 ctermbg=gray
+    " 偶数インデントのカラー
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4f4f4f ctermbg=darkgray
+    " ハイライト色の変化の幅
+    let g:indent_guides_color_change_percent = 5
+    " ガイドの幅
+    let g:indent_guides_guide_size = 1
+else
+    let g:indentLine_enabled = 1
+    "let g:indentLine_setColors = 0
+    let g:indentLine_color_term = 239
+    let g:indentLine_char = '|'
+    "let g:indentLine_concealcursor = '.'
+    "let g:indentLine_conceallevel = 2
+    "let g:indentLine_setConceal = 0
+end
 
 
 
