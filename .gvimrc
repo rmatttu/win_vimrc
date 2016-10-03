@@ -1,4 +1,4 @@
-"ƒJƒ‰[İ’è‚µ‚½Œã‚ÉCursorIM‚ğ’è‹`‚·‚é•û–@
+"ã‚«ãƒ©ãƒ¼è¨­å®šã—ãŸå¾Œã«CursorIMã‚’å®šç¾©ã™ã‚‹æ–¹æ³•
 colorscheme desert
 
 if has('multi_byte_ime')
@@ -12,12 +12,13 @@ SM3
 "set guioptions+=b
 set lines=40
 set columns=120
-set guifont=Consolas:h10:cSHIFTJIS
-"set guifont=VL_Gothic:h10:cSHIFTJIS
-"set guifont=Myrica_M:h11:cSHIFTJIS
-"set guifont=Ricty_Diminished:h11:cSHIFTJIS
+"set guifont=Consolas:h10:cSHIFTJIS
+set guifont=VL_Gothic:h10:cSHIFTJIS
+"set guifont=Migu_1M:h10:cSHIFTJIS
+"set guifont=Myrica_M:h10:cSHIFTJIS
+"set guifont=Ricty_Diminished:h10:cSHIFTJIS
 
-" ƒtƒHƒ“ƒgƒŒƒ“ƒ_ƒŠƒ“ƒO‚ğ“Æ©‚És‚¤
+" ãƒ•ã‚©ãƒ³ãƒˆãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚’ç‹¬è‡ªã«è¡Œã†
 "set renderoptions=type:directx
 "set antialias
 
@@ -26,6 +27,6 @@ set guifont=Consolas:h10:cSHIFTJIS
 
 " noremap <C-V> <C-V>
 
-" ŠO•”‚Åƒtƒ@ƒCƒ‹‚ªXV‚³‚ê‚½‚Ìƒ|ƒbƒvƒAƒbƒvŒx‚ğ‚µ‚È‚¢
+" å¤–éƒ¨ã§ãƒ•ã‚¡ã‚¤ãƒ«ãŒæ›´æ–°ã•ã‚ŒãŸæ™‚ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è­¦å‘Šã‚’ã—ãªã„
 set autoread
 

@@ -1,41 +1,41 @@
 " ---------------------------------------------------------------------------
 " Setting
-" vim‚Åƒ„ƒ“ƒN(ƒRƒs[)‚·‚é‚Æwindows‚ÌƒNƒŠƒbƒvƒ{[ƒh‚É‚àŠi”[
+" vimã§ãƒ¤ãƒ³ã‚¯(ã‚³ãƒ”ãƒ¼)ã™ã‚‹ã¨windowsã®ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚‚æ ¼ç´
 set clipboard=unnamed
 
-" .swapƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
+" .swapãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
 set noswapfile
-" ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‰ãªã„
 set nowritebackup
-" ƒoƒbƒNƒAƒbƒv‚ğ‚µ‚È‚¢
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ã—ãªã„
 set nobackup
-" undo ƒtƒ@ƒCƒ‹‚ğì¬‚µ‚È‚¢
+" undo ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ãªã„
 set noundofile
 
-" ƒXƒNƒ[ƒ‹‚É•\¦‚ğnsŠm•Û
-" c•ûŒü
+" ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«æ™‚ã«è¡¨ç¤ºã‚’nè¡Œç¢ºä¿
+" ç¸¦æ–¹å‘
 set scrolloff=5
-" ‰¡•ûŒü
+" æ¨ªæ–¹å‘
 set sidescrolloff=5
 
-" ‰æ–Ê‚Ì¶‰E‚Ì’[‚ÅƒXƒNƒ[ƒ‹‚ª”­¶‚µ‚½ê‡A‰½•¶š‚¸‚ÂƒXƒNƒ[ƒ‹‚·‚é‚©
+" ç”»é¢ã®å·¦å³ã®ç«¯ã§ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãŒç™ºç”Ÿã—ãŸå ´åˆã€ä½•æ–‡å­—ãšã¤ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã™ã‚‹ã‹
 set sidescroll=5
 
-" textwidth‚ªã‘‚©‚ê‚Ä‚µ‚Ü‚¤‚ç‚µ‚¢
+" textwidthãŒä¸Šæ›¸ã‹ã‚Œã¦ã—ã¾ã†ã‚‰ã—ã„
 autocmd FileType text setlocal textwidth=0
 
-" LinuxŠJ”­—p
+" Linuxé–‹ç™ºç”¨
 set encoding=utf-8
 set ff=unix
 
-" ƒCƒ“ƒfƒ“ƒg‚ğTab‚Å‚Í‚È‚­ƒXƒy[ƒX4‚Â‚Å‘µ‚¦‚é
+" ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’Tabã§ã¯ãªãã‚¹ãƒšãƒ¼ã‚¹4ã¤ã§æƒãˆã‚‹
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
 
-" ŒŸõƒIƒvƒVƒ‡ƒ“
+" æ¤œç´¢ã‚ªãƒ—ã‚·ãƒ§ãƒ³
 set noignorecase
 set smartcase
 
@@ -44,23 +44,23 @@ set nowrap
 set noshowmode
 syntax on
 
-" Windows 32bit, Windows 64bit ‚Ì‚Ç‚¿‚ç‚©
+" Windows 32bit, Windows 64bit ã®ã©ã¡ã‚‰ã‹
 if has('win32') || has ('win64')
-    " Ctrl+V‚Ì‹““®‚ğ•ÏX
+    " Ctrl+Vã®æŒ™å‹•ã‚’å¤‰æ›´
     imap <C-v> <S-Insert>
 endif
 
-" Unix —pİ’è
+" Unix ç”¨è¨­å®š
 if has('unix')
-    " teraterm—pİ’è
+    " teratermç”¨è¨­å®š
     "set term=builtin_linux
     "set ttytype=builtin_linux
     "set t_Co=256
     "colorscheme desert256
     colorscheme molokai256
-    "BS‚Åíœ‚Å‚«‚é‚à‚Ì‚ğw’è‚·‚é
+    "BSã§å‰Šé™¤ã§ãã‚‹ã‚‚ã®ã‚’æŒ‡å®šã™ã‚‹
     set backspace=indent,eol,start
-    "ƒeƒXƒg’†
+    "ãƒ†ã‚¹ãƒˆä¸­
     set viminfo='100,<50,s10,h,rA:,rB:
 endif
 
@@ -70,7 +70,7 @@ endif
 " KeyMap
 noremap <ESC><ESC> :noh<ENTER>
 
-" ƒm[ƒ}ƒ‹ƒ‚[ƒh‚Ì‚Æ‚«‚ÉF2‚Å‘O‚Ìƒoƒbƒtƒ@AF3‚ÅŸ‚Ìƒoƒbƒtƒ@‚ÉˆÚ“®‚·‚é
+" ãƒãƒ¼ãƒãƒ«ãƒ¢ãƒ¼ãƒ‰ã®ã¨ãã«F2ã§å‰ã®ãƒãƒƒãƒ•ã‚¡ã€F3ã§æ¬¡ã®ãƒãƒƒãƒ•ã‚¡ã«ç§»å‹•ã™ã‚‹
 map <silent>    <F2>    :bp<cr>
 map <silent>    <F3>    :bn<cr>
 
@@ -132,15 +132,15 @@ NeoBundleCheck
 
 " ---------------------------------------------------------------------------
 " QFixHowm
-"QFixHowmƒL[ƒ}ƒbƒv
+"QFixHowmã‚­ãƒ¼ãƒãƒƒãƒ—
 "let QFixHowm_Key = 'g'
-"howm_dir‚Íƒtƒ@ƒCƒ‹‚ğ•Û‘¶‚µ‚½‚¢ƒfƒBƒŒƒNƒgƒŠ‚ğİ’èB
+"howm_dirã¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä¿å­˜ã—ãŸã„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è¨­å®šã€‚
 let howm_dir             = '$HOME/.vim/howm'
 "let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.howm'
 "let howm_fileencoding    = 'utf-8'
 "let howm_fileformat      = 'unix'
 "let QFixHowm_DiaryFile = 'diary/%Y/%m/%Y-%m-%d-000000.howm'
-" QFixList•\¦‚Åƒtƒ@ƒCƒ‹‚ÖˆÚ“®‚µ‚½‚çƒEƒBƒ“ƒhƒE‚ğ•Â‚¶‚é
+" QFixListè¡¨ç¤ºã§ãƒ•ã‚¡ã‚¤ãƒ«ã¸ç§»å‹•ã—ãŸã‚‰ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã‚‹
 let QFixHowm_ListCloseOnJump = 1
 let QFixHowm_Folding = 0
 
@@ -245,31 +245,31 @@ endif
 " ---------------------------------------------------------------------------
 "  unite.vim
 "
-" “ü—Íƒ‚[ƒh‚ÅŠJn‚·‚é
+" å…¥åŠ›ãƒ¢ãƒ¼ãƒ‰ã§é–‹å§‹ã™ã‚‹
 let g:unite_enable_start_insert=1
-" ƒoƒbƒtƒ@ˆê——
+" ãƒãƒƒãƒ•ã‚¡ä¸€è¦§
 noremap <C-P> :Unite buffer<CR>
-" ƒtƒ@ƒCƒ‹ˆê——
+" ãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§
 noremap <C-B> :Unite buffer<CR>
-" Å‹ßg‚Á‚½ƒtƒ@ƒCƒ‹‚Ìˆê——
+" æœ€è¿‘ä½¿ã£ãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€è¦§
 noremap <C-Z> :Unite file_mru<CR>
 
-" ƒEƒBƒ“ƒhƒE‚ğ•ªŠ„‚µ‚ÄŠJ‚­
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’åˆ†å‰²ã—ã¦é–‹ã
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-" ƒEƒBƒ“ƒhƒE‚ğc‚É•ªŠ„‚µ‚ÄŠJ‚­
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¸¦ã«åˆ†å‰²ã—ã¦é–‹ã
 au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
 au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-" ESCƒL[‚ğ2‰ñ‰Ÿ‚·‚ÆI—¹‚·‚é
+" ESCã‚­ãƒ¼ã‚’2å›æŠ¼ã™ã¨çµ‚äº†ã™ã‚‹
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-" ‰Šúİ’èŠÖ”‚ğ‹N“®‚·‚é
+" åˆæœŸè¨­å®šé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹
 au FileType unite call s:unite_my_settings()
     function! s:unite_my_settings()
     " Overwrite settings.
 endfunction
 
-" —lX‚ÈƒVƒ‡[ƒgƒJƒbƒg
+" æ§˜ã€…ãªã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆ
 call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
 call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/"', 2)
 call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
@@ -292,7 +292,7 @@ endif
 "
 let g:NERDTreeShowBookmarks=1
 
-"ƒtƒ@ƒCƒ‹–¼‚ªw’è‚³‚ê‚ÄVIM‚ª‹N“®‚µ‚½ê‡‚ÍNERDTree‚ğ•\¦‚µ‚È‚¢
+"ãƒ•ã‚¡ã‚¤ãƒ«åãŒæŒ‡å®šã•ã‚Œã¦VIMãŒèµ·å‹•ã—ãŸå ´åˆã¯NERDTreeã‚’è¡¨ç¤ºã—ãªã„
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -315,10 +315,10 @@ call NERDTreeHighlightFile('js',     'Red',     'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
 
 "let g:NERDTreeDirArrows = 1
-"let g:NERDTreeDirArrowExpandable  = '¨'
-"let g:NERDTreeDirArrowCollapsible = '¥'
+"let g:NERDTreeDirArrowExpandable  = 'â†’'
+"let g:NERDTreeDirArrowCollapsible = 'â–¼'
 
-" •s‰Â‹ƒtƒ@ƒCƒ‹‚ğ•\¦‚·‚é
+" ä¸å¯è¦–ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤ºã™ã‚‹
 let NERDTreeShowHidden = 1
 
 
@@ -505,7 +505,7 @@ let g:vimshell_force_overwrite_statusline = 1
 
 " ---------------------------------------------------------------------------
 " caw
-" ƒRƒƒ“ƒg‚Ì’Ç‰ÁEíœ‚ğs‚È‚¤
+" ã‚³ãƒ¡ãƒ³ãƒˆã®è¿½åŠ ãƒ»å‰Šé™¤ã‚’è¡Œãªã†
 nmap <Leader>/ <Plug>(caw:zeropos:toggle)
 vmap <Leader>/ <Plug>(caw:zeropos:toggle)
 
@@ -513,21 +513,21 @@ vmap <Leader>/ <Plug>(caw:zeropos:toggle)
 
 " ---------------------------------------------------------------------------
 " vim-indent-guides
-" gvim‚Å‚Ì‚İindent-guide‚ğƒIƒ“‚É‚·‚é
+" gvimã§ã®ã¿indent-guideã‚’ã‚ªãƒ³ã«ã™ã‚‹
 if has('gui_running')
-    " vim—§‚¿ã‚°‚½‚Æ‚«‚ÉA©“®“I‚Évim-indent-guides‚ğƒIƒ“‚É‚·‚é
+    " vimç«‹ã¡ä¸Šã’ãŸã¨ãã«ã€è‡ªå‹•çš„ã«vim-indent-guidesã‚’ã‚ªãƒ³ã«ã™ã‚‹
     let g:indent_guides_enable_on_vim_startup=1
-    " ƒKƒCƒh‚ğƒXƒ^[ƒg‚·‚éƒCƒ“ƒfƒ“ƒg‚Ì—Ê
+    " ã‚¬ã‚¤ãƒ‰ã‚’ã‚¹ã‚¿ãƒ¼ãƒˆã™ã‚‹ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã®é‡
     let g:indent_guides_start_level=2
-    " ©“®ƒJƒ‰[‚ğ–³Œø‚É‚·‚é
+    " è‡ªå‹•ã‚«ãƒ©ãƒ¼ã‚’ç„¡åŠ¹ã«ã™ã‚‹
     "let g:indent_guides_auto_colors=0
-    " Šï”ƒCƒ“ƒfƒ“ƒg‚ÌƒJƒ‰[
+    " å¥‡æ•°ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã®ã‚«ãƒ©ãƒ¼
     "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#161616 ctermbg=gray
-    " ‹ô”ƒCƒ“ƒfƒ“ƒg‚ÌƒJƒ‰[
+    " å¶æ•°ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã®ã‚«ãƒ©ãƒ¼
     "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#4f4f4f ctermbg=darkgray
-    " ƒnƒCƒ‰ƒCƒgF‚Ì•Ï‰»‚Ì•
+    " ãƒã‚¤ãƒ©ã‚¤ãƒˆè‰²ã®å¤‰åŒ–ã®å¹…
     let g:indent_guides_color_change_percent = 5
-    " ƒKƒCƒh‚Ì•
+    " ã‚¬ã‚¤ãƒ‰ã®å¹…
     let g:indent_guides_guide_size = 1
 else
     let g:indentLine_enabled = 1
