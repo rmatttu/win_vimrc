@@ -17,6 +17,12 @@ rem vim設定ファイルコピー
 copy .vimrc %USERPROFILE%\
 copy .gvimrc %USERPROFILE%\
 
+rem カラースキームのインストール
+git clone https://github.com/joedicastro/vim-molokai256.git
+mkdir %USERPROFILE%\.vim\colors\
+copy vim-molokai256\colors\molokai256.vim %USERPROFILE%\.vim\colors\
+
 pause
+
 
 
