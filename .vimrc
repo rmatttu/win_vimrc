@@ -515,6 +515,8 @@ vmap <Leader>/ <Plug>(caw:zeropos:toggle)
 " vim-indent-guides
 " gvimでのみindent-guideをオンにする
 if has('gui_running')
+    let g:indentLine_enabled = 0
+
     " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
     let g:indent_guides_enable_on_vim_startup=1
     " ガイドをスタートするインデントの量
@@ -530,6 +532,8 @@ if has('gui_running')
     " ガイドの幅
     let g:indent_guides_guide_size = 1
 else
+    let g:indent_guides_enable_on_vim_startup=0
+
     let g:indentLine_enabled = 1
     "let g:indentLine_setColors = 0
     let g:indentLine_color_term = 239
