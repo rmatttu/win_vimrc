@@ -106,6 +106,7 @@ NeoBundle 'jistr/vim-nerdtree-tabs'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
@@ -328,6 +329,8 @@ let NERDTreeShowHidden = 1
 "
 let g:nerdtree_tabs_open_on_gui_startup = 0
 :command Tr NERDTreeTabsToggle
+:command Tf NERDTreeFind
+:command Tg VimFiler
 
 
 
