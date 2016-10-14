@@ -50,9 +50,9 @@ if has('win32') || has ('win64')
     set runtimepath+=~/.vim/
     " Ctrl+Vの挙動を変更
     imap <C-v> <S-Insert>
+    colorscheme japanesque
 endif
 
-colorscheme japanesque
 
 " Unix 用設定
 if has('unix')
@@ -80,71 +80,73 @@ map <silent>    <F2>    :bp<cr>
 map <silent>    <F3>    :bn<cr>
 
 
-" ---------------------------------------------------------------------------
-" NeoBundle
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
 
+
+"dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+set runtimepath+=/home/haru/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call dein#begin('/home/haru/.vim/dein')
 
-" Let NeoBundle manage NeoBundle
+" Let dein manage dein
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('Shougo/dein.vim')
 
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'fuenor/qfixhowm'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'osyo-manga/vim-brightest'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'altercation/vim-colors-solarized.git'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'bronson/vim-trailing-whitespace.git'
-NeoBundle 'tyru/caw.vim.git'
-NeoBundle 'nathanaelkane/vim-indent-guides.git'
-NeoBundle 'Yggdroot/indentLine'
+" Add or remove your plugins here:
+"call dein#add('Shougo/neosnippet.vim')
+"call dein#add('Shougo/neosnippet-snippets')
+
+
+call dein#add('fuenor/qfixhowm')
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('scrooloose/nerdtree')
+call dein#add('jistr/vim-nerdtree-tabs')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-fugitive')
+call dein#add('itchyny/lightline.vim')
+call dein#add('osyo-manga/vim-brightest')
+call dein#add('junegunn/vim-easy-align')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('altercation/vim-colors-solarized.git')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('bronson/vim-trailing-whitespace.git')
+call dein#add('tyru/caw.vim.git')
+call dein#add('nathanaelkane/vim-indent-guides.git')
+call dein#add('Yggdroot/indentLine')
 if has('unix')
-    NeoBundle 'Shougo/vimproc.vim', {
-                \ 'build' : {
-                \     'windows' : 'tools\\update-dll-mingw',
-                \     'cygwin' : 'make -f make_cygwin.mak',
-                \     'mac' : 'make -f make_mac.mak',
-                \     'linux' : 'make',
-                \     'unix' : 'gmake',
-                \    },
-                \ }
-    NeoBundle 'Shougo/vimshell.vim'
+    call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+    call dein#add('Shougo/vimshell.vim')
 endif
-call neobundle#end()
+
+
+" You can specify revision/branch/tag.
+"call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+    call dein#install()
+endif
+
+"End dein Scripts-------------------------
 
 
 
@@ -180,7 +182,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+    \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')

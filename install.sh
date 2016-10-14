@@ -1,22 +1,29 @@
 #!/bin/bash
 
-# install neobundle
-cd ~
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
-sh ./install.sh
 
 # setting my vim
-cp ~/win_vimrc/.vimrc ~/
-cd ~/.vim/bundle/neobundle.vim/
+cp .vimrc ~/
 
-# neoinstall
-bin/neoinstall
+
+# install dein.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+sh ./installer.sh ~/.vim/dein/
+
 
 # カラースキームのインストール
-git clone https://github.com/joedicastro/vim-molokai256.git
 mkdir ~/.vim/colors/
+
+git clone https://github.com/joedicastro/vim-molokai256.git
 cp vim-molokai256/colors/molokai256.vim ~/.vim/colors/
 
+git clone https://github.com/brafales/vim-desert256.git
+cp vim-desert256/colors/desert256.vim ~/.vim/colors/
+
+git clone https://github.com/aereal/vim-colors-japanesque.git
+cp vim-colors-japanesque/colors/japanesque.vim ~/.vim/colors/
+
+
 # clean
-rm -f install.sh
+rm -f installer.sh
+
 
