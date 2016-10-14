@@ -1,5 +1,6 @@
 "カラー設定した後にCursorIMを定義する方法
-colorscheme desert
+"colorscheme desert
+colorscheme japanesque
 
 if has('multi_byte_ime')
   highlight Cursor guifg=NONE guibg=YellowGreen
@@ -27,6 +28,4 @@ set guifont=VL_Gothic:h10:cSHIFTJIS
 
 " noremap <C-V> <C-V>
 
-" 外部でファイルが更新された時のポップアップ警告をしない
-set autoread
 

@@ -14,7 +14,7 @@ set noundofile
 
 " スクロール時に表示をn行確保
 " 縦方向
-set scrolloff=5
+set scrolloff=8
 " 横方向
 set sidescrolloff=5
 
@@ -36,19 +36,23 @@ set autoindent
 set smartindent
 
 " 検索オプション
-set noignorecase
+set ignorecase
 set smartcase
 
 set number
 set nowrap
 set noshowmode
+set autoread
 syntax on
 
 " Windows 32bit, Windows 64bit のどちらか
 if has('win32') || has ('win64')
+    set runtimepath+=~/.vim/
     " Ctrl+Vの挙動を変更
     imap <C-v> <S-Insert>
 endif
+
+colorscheme japanesque
 
 " Unix 用設定
 if has('unix')
@@ -69,6 +73,7 @@ endif
 " ---------------------------------------------------------------------------
 " KeyMap
 noremap <ESC><ESC> :noh<ENTER>
+nnoremap gw <C-w><C-w>
 
 " ノーマルモードのときにF2で前のバッファ、F3で次のバッファに移動する
 map <silent>    <F2>    :bp<cr>
@@ -120,6 +125,18 @@ NeoBundle 'bronson/vim-trailing-whitespace.git'
 NeoBundle 'tyru/caw.vim.git'
 NeoBundle 'nathanaelkane/vim-indent-guides.git'
 NeoBundle 'Yggdroot/indentLine'
+if has('unix')
+    NeoBundle 'Shougo/vimproc.vim', {
+                \ 'build' : {
+                \     'windows' : 'tools\\update-dll-mingw',
+                \     'cygwin' : 'make -f make_cygwin.mak',
+                \     'mac' : 'make -f make_mac.mak',
+                \     'linux' : 'make',
+                \     'unix' : 'gmake',
+                \    },
+                \ }
+    NeoBundle 'Shougo/vimshell.vim'
+endif
 call neobundle#end()
 
 " Required:
