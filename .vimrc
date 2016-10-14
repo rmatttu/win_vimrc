@@ -88,10 +88,10 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/haru/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/dein.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-call dein#begin('/home/haru/.vim/dein')
+call dein#begin('~/.vim/dein.vim')
 
 " Let dein manage dein
 " Required:
