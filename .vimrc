@@ -50,7 +50,6 @@ if has('win32') || has ('win64')
     set runtimepath+=~/.vim/
     " Ctrl+Vの挙動を変更
     imap <C-v> <S-Insert>
-    colorscheme japanesque
 endif
 
 
