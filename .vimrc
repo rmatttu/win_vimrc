@@ -103,7 +103,7 @@ call dein#add('Shougo/dein.vim')
 
 call dein#add('fuenor/qfixhowm')
 call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('scrooloose/nerdtree')
 call dein#add('jistr/vim-nerdtree-tabs')
