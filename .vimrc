@@ -45,14 +45,6 @@ set noshowmode
 set autoread
 syntax on
 
-" Windows 32bit, Windows 64bit のどちらか
-if has('win32') || has ('win64')
-    set runtimepath+=~/.vim/
-    " Ctrl+Vの挙動を変更
-    imap <C-v> <S-Insert>
-endif
-
-
 " Unix 用設定
 if has('unix')
     " teraterm用設定

@@ -1,6 +1,14 @@
 "カラー設定した後にCursorIMを定義する方法
-"colorscheme desert
-colorscheme japanesque
+
+" Windows 32bit, Windows 64bit のどちらか
+if has('win32') || has ('win64')
+    " Ctrl+Vの挙動を変更
+    "imap <C-v> <S-Insert>
+    set runtimepath+=~/.vim/
+    "colorscheme desert
+    colorscheme japanesque
+endif
+
 
 if has('multi_byte_ime')
   highlight Cursor guifg=NONE guibg=YellowGreen
