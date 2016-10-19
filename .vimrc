@@ -386,7 +386,7 @@ let g:multi_cursor_start_word_key='g<C-n>'
 " lightline.vim
 "
 let g:lightline = {
-            \ 'colorscheme': 'landscape',
+            \ 'colorscheme': 'powerline',
             \ 'mode_map': { 'c': 'NORMAL' },
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
@@ -401,8 +401,8 @@ let g:lightline = {
             \   'fileencoding': 'LightLineFileencoding',
             \   'mode': 'LightLineMode',
             \ },
-            \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-            \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+            \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+            \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
             \ }
 
 function! LightLineModified()
@@ -410,7 +410,7 @@ function! LightLineModified()
 endfunction
 
 function! LightLineReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
 endfunction
 
 function! LightLineFilename()
@@ -423,9 +423,9 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFugitive()
-    if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    if exists("*fugitive#head")
         let branch = fugitive#head()
-        return branch !=# '' ? ' '.branch : ''
+        return branch !=# '' ? '⭠ '.branch : ''
     endif
     return ''
 endfunction
