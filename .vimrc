@@ -122,6 +122,9 @@ if has('unix')
     call dein#add('Shougo/vimshell.vim')
 endif
 
+" colorscheme
+call dein#add('sjl/badwolf')
+
 
 " You can specify revision/branch/tag.
 "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -423,11 +426,11 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFugitive()
-    if exists("*fugitive#head")
-        let branch = fugitive#head()
-        return branch !=# '' ? '⭠ '.branch : ''
-    endif
-    return ''
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? '⭠ '.branch : ''
+  endif
+  return ''
 endfunction
 
 function! LightLineFileformat()
@@ -456,13 +459,13 @@ endfunction
 "let g:airline_symbols.linenr = ''
 
 
-
 " ---------------------------------------------------------------------------
 " caw
 " コメントの追加・削除を行なう
 nmap <Leader>/ <Plug>(caw:zeropos:toggle)
 vmap <Leader>/ <Plug>(caw:zeropos:toggle)
-
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 
 " ---------------------------------------------------------------------------

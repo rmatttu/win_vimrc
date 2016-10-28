@@ -5,8 +5,9 @@ if has('win32') || has ('win64')
     " Ctrl+Vの挙動を変更
     "imap <C-v> <S-Insert>
     set runtimepath+=~/.vim/
-    colorscheme desert
+    "colorscheme desert
     "colorscheme japanesque
+    colorscheme badwolf
 endif
 
 
@@ -27,7 +28,6 @@ set columns=120
 "set guifont=Myrica_M:h10:cSHIFTJIS
 "set guifont=Ricty_Diminished:h10:cSHIFTJIS
 set guifont=Ricty_Diminished_for_Powerline:h10:cSHIFTJIS:qDRAFT
-
 
 " フォントレンダリングを独自に行う
 "set renderoptions=type:directx
