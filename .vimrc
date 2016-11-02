@@ -34,32 +34,23 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
-
-" 検索オプション
 set ignorecase
 set smartcase
-
 set number
 set nowrap
 set noshowmode
 set autoread
 set laststatus=2
 syntax on
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Unix 用設定
 if has('unix')
-    " teraterm用設定
-    "set term=builtin_linux
-    "set ttytype=builtin_linux
-    "set t_Co=256
-    colorscheme desert256
-    "colorscheme molokai256
     "BSで削除できるものを指定する
     set backspace=indent,eol,start
     "テスト中
     set viminfo='100,<50,s10,h,rA:,rB:
 endif
-
 
 
 " ---------------------------------------------------------------------------
@@ -118,12 +109,15 @@ call dein#add('tyru/caw.vim.git')
 call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
 if has('unix')
+    call dein#add('joedicastro/vim-molokai256.git')
+    call dein#add('brafales/vim-desert256.git')
     call dein#add('Shougo/vimproc.vim', {'build': 'make'})
     call dein#add('Shougo/vimshell.vim')
 endif
 
 " colorscheme
 call dein#add('sjl/badwolf')
+call dein#add('aereal/vim-colors-japanesque.git')
 
 
 " You can specify revision/branch/tag.
@@ -142,6 +136,16 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+" Unix 用カラースキーム
+if has('unix')
+    " teraterm用設定
+    "set term=builtin_linux
+    "set ttytype=builtin_linux
+    "set t_Co=256
+    colorscheme desert256
+    "colorscheme molokai256
+endif
 
 
 
