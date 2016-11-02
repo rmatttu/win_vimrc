@@ -86,7 +86,10 @@ call dein#add('Shougo/dein.vim')
 
 
 call dein#add('fuenor/qfixhowm')
-call dein#add('Shougo/neocomplete.vim')
+
+"call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neocomplete.vim', { 'rev': '77ec549' })
+
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('scrooloose/nerdtree')
@@ -373,19 +376,19 @@ nmap ga <Plug>(EasyAlign)
 " ---------------------------------------------------------------------------
 " vim-multiple-cursors
 "
-let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_use_default_mapping=1
 
 " Default mapping
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" Map start key separately from next key
-let g:multi_cursor_start_key='<F6>'
-
-let g:multi_cursor_start_key='<C-n>'
-let g:multi_cursor_start_word_key='g<C-n>'
+"lei<Plug>(neocomplete_start_auto_complete)aaaa<Plug>(neocomplete_start_auto_complete)at g:multi_cursor_next_key='<C-n>'
+"lei<Plug>(neocomplete_start_auto_complete)aaaa<Plug>(neocomplete_start_auto_complete)at g:multi_cursor_prev_key='<C-p>'
+"lei<Plug>(neocomplete_start_auto_complete)aaaa<Plug>(neocomplete_start_auto_complete)at g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
+"
+"" Map start key separately from next key
+"let g:multi_cursor_start_key='<F6>'
+"
+"let g:multi_cursor_start_key='<C-n>'
+"let g:multi_cursor_start_word_key='g<C-n>'
 
 
 
