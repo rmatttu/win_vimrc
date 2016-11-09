@@ -62,7 +62,7 @@ nnoremap gw <C-w><C-w>
 map <silent>    <F2>    :bp<cr>
 map <silent>    <F3>    :bn<cr>
 
-
+inoremap jj <Esc>
 
 
 "dein Scripts-----------------------------
@@ -81,15 +81,8 @@ call dein#begin('~/.vim/dein.vim')
 call dein#add('Shougo/dein.vim')
 
 " Add or remove your plugins here:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
-
-
 call dein#add('fuenor/qfixhowm')
-
-"call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/neocomplete.vim', { 'rev': '77ec549' })
-
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 call dein#add('scrooloose/nerdtree')
@@ -111,6 +104,7 @@ call dein#add('bronson/vim-trailing-whitespace.git')
 call dein#add('tyru/caw.vim.git')
 call dein#add('nathanaelkane/vim-indent-guides.git')
 call dein#add('Yggdroot/indentLine')
+call dein#add('Shougo/vimfiler.vim')
 if has('unix')
     call dein#add('joedicastro/vim-molokai256.git')
     call dein#add('brafales/vim-desert256.git')
@@ -121,10 +115,6 @@ endif
 " colorscheme
 call dein#add('sjl/badwolf')
 call dein#add('aereal/vim-colors-japanesque.git')
-
-
-" You can specify revision/branch/tag.
-"call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
 " Required:
 call dein#end()
@@ -353,6 +343,11 @@ let g:nerdtree_tabs_open_on_gui_startup = 0
 :command Tf NERDTreeFind
 :command Tg VimFiler
 
+noremap tr :NERDTreeTabsToggle<CR>
+"noremap tr :VimFilerExplorer<CR>
+noremap tf :NERDTreeFind<CR>
+noremap tv :VimFiler<CR>
+
 
 
 " ---------------------------------------------------------------------------
@@ -414,6 +409,10 @@ let g:lightline = {
             \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
             \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
             \ }
+" non powerline
+" \ 'separator': { 'left': '', 'right': '' },
+" \ 'subseparator': { 'left': '|', 'right': '|' }
+
 
 function! LightLineModified()
     return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -421,6 +420,8 @@ endfunction
 
 function! LightLineReadonly()
     return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+    " non powerline
+    " return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
 endfunction
 
 function! LightLineFilename()
@@ -436,6 +437,8 @@ function! LightLineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()
     return branch !=# '' ? '⭠ '.branch : ''
+    " non powerline
+    " return branch
   endif
   return ''
 endfunction

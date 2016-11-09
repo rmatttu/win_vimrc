@@ -9,7 +9,6 @@ if has('win32') || has ('win64')
     colorscheme badwolf
 endif
 
-
 if has('multi_byte_ime')
   highlight Cursor guifg=NONE guibg=YellowGreen
   highlight CursorIM guifg=NONE guibg=Purple
@@ -17,6 +16,10 @@ endif
 
 
 SM3
+" タブページを常に表示
+set showtabline=2
+" gVimでもテキストベースのタブページを使う
+set guioptions-=e
 "set guioptions+=r "scroll bar
 "set guioptions+=b
 set lines=40
