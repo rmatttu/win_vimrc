@@ -260,11 +260,12 @@ endif
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 " バッファ一覧
-noremap <C-P> :Unite buffer<CR>
+"noremap <C-P> :Unite buffer<CR>
+noremap tb :Unite buffer<CR>
 " ファイル一覧
-noremap <C-B> :Unite buffer<CR>
+"noremap <C-B> :Unite buffer<CR>
 " 最近使ったファイルの一覧
-noremap <C-Z> :Unite file_mru<CR>
+"noremap <C-Z> :Unite file_mru<CR>
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
